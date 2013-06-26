@@ -1,0 +1,15 @@
+<h1>Twitter Clone</h1>
+<table>
+{% for t in messages %}
+    <tr>
+        <td>{{ t.message }}</td><td> {{ t.timestamp }}</td><td>
+        <a href="{{ url_for( 'profile', username=t.username ) }}">{{ t.username }}</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br />
+<form method="post" action="{{ url_for('add') }}">
+    <input type="text" name="message">
+    <button type="submit">Add New Message</button>
+</form>
